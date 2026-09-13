@@ -1,0 +1,56 @@
+---
+interface Product {
+  slug: string;
+  name: string;
+  brand: string;
+  shortDescription: string;
+  priceRange: string;
+  image: string;
+  affiliateUrl: string;
+}
+
+interface Props {
+  product: Product;
+  showBuy?: boolean;
+}
+
+const { product, showBuy = true } = Astro.props;
+const detailHref = `/produto/${product.slug}`;
+---
+
+<article class="product-card" data-product-slug={product.slug}>
+  <a class="product-card__media" href={detailHref} tabindex="-1" aria-hidden="true">
+    <img
+      src={product.image}
+      alt=""
+      loading="lazy"
+      width="600"
+      height="800"
+    />
+  </a>
+  <div class="product-card__body">
+    <span class="product-card__brand">{product.brand}</span>
+    <h3 class="product-card__title">
+      <a href={detailHref}>{product.name}</a>
+    </h3>
+    <p class="product-card__desc">{product.shortDescription}</p>
+    <p class="product-card__price">{product.priceRange}</p>
+    <div class="product-card__actions">
+      <a class="btn btn--ghost" href={detailHref} data-track="view-product" data-product={product.slug}>
+        Ver produto
+      </a>
+      {showBuy && (
+        <a
+          class="btn btn--primary"
+          href={product.affiliateUrl}
+          target="_blank"
+          rel="noopener sponsored noreferrer"
+          data-track="buy-click"
+          data-product={product.slug}
+        >
+          Comprar
+        </a>
+      )}
+    </div>
+  </div>
+</article>

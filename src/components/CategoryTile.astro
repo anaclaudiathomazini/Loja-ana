@@ -1,0 +1,18 @@
+---
+interface Category {
+  id: string;
+  label: string;
+  description: string;
+}
+
+interface Props {
+  category: Category;
+}
+
+const { category } = Astro.props;
+---
+
+<a class="category-tile" href={`/categoria/${category.id}`} data-track="view-category" data-category={category.id}>
+  <h3 class="category-tile__title">{category.label}</h3>
+  <p class="category-tile__desc">{category.description}</p>
+</a>

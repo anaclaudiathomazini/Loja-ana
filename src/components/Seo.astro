@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description,
+  image = '/favicon.svg',
+  type = 'website',
+  canonicalPath,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://example.com');
+const path = canonicalPath ?? Astro.url.pathname;
+const canonical = new URL(path, site).href;
+const ogImage = new URL(image, site).href;
+const fullTitle = title.includes('Loja Ana') ? title : `${title} · Loja Ana`;
+---
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
