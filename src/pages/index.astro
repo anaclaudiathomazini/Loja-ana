@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import CategoryTile from '../components/CategoryTile.astro';
+import products from '../data/products.json';
+import categories from '../data/categories.json';
+
+const featured = products.filter((p) => p.featured).slice(0, 3);
+const favorites = products.filter(
+  (p) => p.category === 'favoritos-curadoria' || p.tags?.includes('favorito')
+).slice(0, 3);
+const achados = products.filter((p) => p.category === 'achados' || p.tags?.includes('achado') || p.tags?.includes('oferta'));
+const giftCats = categories.filter((c) => c.id === 'kits-presentes');
+const teaserCats = categories.filter((c) => c.featured).slice(0, 6);
+---
+
+<BaseLayout
+  title="Loja Ana — Curadoria sensorial de banho e corpo"
+  description="Boutique editorial de sabonetes, rituais de banho e presentes delicados. Curadoria feminina, sofisticada e sensorial em português do Brasil."
+>
+  <section class="hero">
+    <div class="hero__vignette" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <p class="label">Curadoria sensorial</p>
+      <h1 class="hero__title">O banho como um gesto editorial</h1>
+      <p class="hero__sub">
+        Sabonetes, óleos e kits escolhidos com calma — fragrâncias limpas,
+        texturas aveludadas e presentes que respeitam o silêncio do cuidado.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="/catalogo" data-track="cta-explorar">Explorar</a>
+        <a class="btn btn--ghost" href="/categoria/favoritos-curadoria">Favoritos da Ana</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="divider" aria-hidden="true">
+      <img class="divider__mark" src="/motifs/botanical.svg" alt="" width="20" height="20" />
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <header class="section__header">
+        <span class="label">Em destaque</span>
+        <h2>Seleção da temporada</h2>
+        <p class="muted">Peças com presença de revista — poucas, bem escolhidas.</p>
+      </header>
+      <div class="product-grid">
+        {featured.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section__header">
+        <span class="label">Favoritos</span>
+        <h2>Escolhas da curadoria</h2>
+        <p class="muted">O que Ana recomenda de coração — atemporais e sensoriais.</p>
+      </header>
+      <div class="product-grid">
+        {favorites.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="section__header">
+        <span class="label">Navegar</span>
+        <h2>Categorias</h2>
+      </header>
+      <div class="category-grid">
+        {teaserCats.map((category) => (
+          <CategoryTile category={category} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {achados.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <header class="section__header">
+          <span class="label">Achados</span>
+          <h2>Descobertas e ofertas</h2>
+          <p class="muted">Edições especiais e preços delicados — sem urgência falsa.</p>
+        </header>
+        <div class="product-grid">
+          {achados.map((product) => (
+            <ProductCard product={product} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container">
+      <div class="gift-block">
+        <span class="label">Presentes</span>
+        <h2>Kits para presentear com intenção</h2>
+        <p class="muted">
+          Combinações curadas em embalagens papel e blush — prontas para
+          surpreender sem excesso.
+        </p>
+        <p style="margin-top: var(--space-3);">
+          <a class="btn btn--primary" href="/categoria/kits-presentes">Ver kits e presentes</a>
+        </p>
+        {giftCats.length === 0 && null}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="ritual-block">
+        <span class="label">Sobre a curadoria</span>
+        <h2>Uma boutique quieta, não um marketplace</h2>
+        <p class="muted">
+          A Loja Ana nasce do prazer de escolher bem: fragrâncias limpas,
+          texturas generosas e marcas (ou ateliês) alinhados a um cotidiano
+          mais sensorial. Transparência de afiliados, sempre.
+        </p>
+        <p style="margin-top: var(--space-3);">
+          <a class="btn btn--ghost" href="/sobre">Conhecer a história</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-block">
+        <h2>Comece pelo catálogo</h2>
+        <p class="muted">Explore barras, líquidos, perfumados e rituais de banho.</p>
+        <a class="btn btn--primary" href="/catalogo" data-track="cta-catalogo">Ver catálogo completo</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

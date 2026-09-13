@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contato"
+  description="Fale com a Loja Ana — redes sociais e e-mail de curadoria (placeholders)."
+>
+  <div class="container page-intro">
+    <p class="label">Contato</p>
+    <h1>Vamos conversar</h1>
+    <p>
+      Dúvidas sobre produtos, parcerias ou sugestões de curadoria — os canais
+      abaixo são placeholders para o lançamento.
+    </p>
+  </div>
+
+  <section class="container" style="padding-bottom: var(--space-8);">
+    <ul class="contact-list">
+      <li>
+        <span>E-mail</span>
+        <!-- STEFAN: substituir pelo e-mail real -->
+        <a href="mailto:ola@exemplo-loja-ana.com">ola@exemplo-loja-ana.com</a>
+      </li>
+      <li>
+        <span>Instagram</span>
+        <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer">@loja.ana</a>
+      </li>
+      <li>
+        <span>Pinterest</span>
+        <a href="https://pinterest.com/" target="_blank" rel="noopener noreferrer">Loja Ana</a>
+      </li>
+    </ul>
+    <p class="muted" style="font-size: var(--text-body-s); max-width: 32rem;">
+      Prefere indicar um achado? Envie referências com nome do produto e onde
+      encontrar — respondemos com carinho, no tempo da curadoria.
+    </p>
+  </section>
+</BaseLayout>

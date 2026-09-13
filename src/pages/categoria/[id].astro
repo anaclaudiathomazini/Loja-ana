@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import products from '../../data/products.json';
+import categories from '../../data/categories.json';
+
+export function getStaticPaths() {
+  return categories.map((category) => ({
+    params: { id: category.id },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+
+let list = products.filter((p) => p.category === category.id);
+
+// favoritos-curadoria also surfaces products tagged favorito
+if (category.id === 'favoritos-curadoria') {
+  const tagged = products.filter((p) => p.tags?.includes('favorito'));
+  const map = new Map(list.map((p) => [p.slug, p]));
+  tagged.forEach((p) => map.set(p.slug, p));
+  list = Array.from(map.values());
+}
+
+// achados also surfaces oferta/achado tags
+if (category.id === 'achados') {
+  const tagged = products.filter(
+    (p) => p.tags?.includes('achado') || p.tags?.includes('oferta')
+  );
+  const map = new Map(list.map((p) => [p.slug, p]));
+  tagged.forEach((p) => map.set(p.slug, p));
+  list = Array.from(map.values());
+}
+---
+
+<BaseLayout
+  title={category.label}
+  description={category.description}
+>
+  <div class="container page-intro">
+    <p class="label">Categoria</p>
+    <h1>{category.label}</h1>
+    <p>{category.description}</p>
+  </div>
+
+  <div class="container" style="padding-bottom: var(--space-8);">
+    <div class="chip-row" role="navigation" aria-label="Outras categorias">
+      <a class="chip" href="/catalogo">Todos</a>
+      {categories.map((c) => (
+        <a class={`chip${c.id === category.id ? ' is-active' : ''}`} href={`/categoria/${c.id}`}>
+          {c.label}
+        </a>
+      ))}
+    </div>
+
+    {list.length === 0 ? (
+      <div class="empty-state">
+        <img src="/motifs/botanical.svg" alt="" width="24" height="24" style="margin: 0 auto var(--space-2);" />
+        <p>Nenhum produto nesta categoria ainda. Volte em breve.</p>
+        <a class="btn btn--ghost" href="/catalogo">Ver catálogo</a>
+      </div>
+    ) : (
+      <div class="product-grid">
+        {list.map((product) => (
+          <ProductCard product={product} />
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

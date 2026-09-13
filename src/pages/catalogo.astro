@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import products from '../data/products.json';
+import categories from '../data/categories.json';
+---
+
+<BaseLayout
+  title="Catálogo"
+  description="Catálogo completo da Loja Ana: sabonetes, banho e corpo, kits e achados selecionados pela curadoria."
+>
+  <div class="container page-intro">
+    <p class="label">Catálogo</p>
+    <h1>Tudo o que curamos</h1>
+    <p>Uma grade espaçada — cada peça com espaço para respirar.</p>
+  </div>
+
+  <div class="container" style="padding-bottom: var(--space-8);">
+    <div class="chip-row" role="navigation" aria-label="Filtrar por categoria">
+      <a class="chip is-active" href="/catalogo">Todos</a>
+      {categories.map((c) => (
+        <a class="chip" href={`/categoria/${c.id}`}>{c.label}</a>
+      ))}
+    </div>
+
+    <div class="product-grid">
+      {products.map((product) => (
+        <ProductCard product={product} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

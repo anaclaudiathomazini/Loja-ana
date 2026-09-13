@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import products from '../../data/products.json';
+import categories from '../../data/categories.json';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const category = categories.find((c) => c.id === product.category);
+const related = products
+  .filter((p) => p.slug !== product.slug && (p.category === product.category || p.featured))
+  .slice(0, 3);
+
+const site = Astro.site ?? new URL('https://example.com');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.shortDescription,
+  image: new URL(product.image, site).href,
+  brand: {
+    '@type': 'Brand',
+    name: product.brand,
+  },
+  category: category?.label ?? product.category,
+  offers: {
+    '@type': 'Offer',
+    url: product.affiliateUrl,
+    priceCurrency: 'BRL',
+    availability: 'https://schema.org/InStock',
+    // price omitted: we show priceRange ranges in MVP
+  },
+};
+---
+
+<BaseLayout
+  title={product.name}
+  description={product.shortDescription}
+  image={product.image}
+  type="product"
+  schema={schema}
+>
+  <div class="container">
+    <nav class="label" style="padding-top: var(--space-4);" aria-label="Breadcrumb">
+      <a href="/catalogo" style="color: inherit; text-decoration: none;">Catálogo</a>
+      {' · '}
+      {category && (
+        <>
+          <a href={`/categoria/${category.id}`} style="color: inherit; text-decoration: none;">
+            {category.label}
+          </a>
+          {' · '}
+        </>
+      )}
+      <span style="color: var(--color-ink);">{product.name}</span>
+    </nav>
+
+    <article class="pdp">
+      <div class="pdp__media">
+        <img
+          src={product.image}
+          alt={`Imagem ilustrativa de ${product.name}`}
+          width="600"
+          height="800"
+          loading="eager"
+        />
+      </div>
+
+      <div class="pdp__info">
+        <p class="pdp__brand">{product.brand}</p>
+        <h1 class="pdp__title">{product.name}</h1>
+        <p class="pdp__price">{product.priceRange}</p>
+        {product.curatorRating && (
+          <p class="rating" aria-label={`Nota da curadoria: ${product.curatorRating} de 5`}>
+            {'●'.repeat(product.curatorRating)}
+            <span class="soft">{'○'.repeat(Math.max(0, 5 - product.curatorRating))}</span>
+            <span class="muted" style="margin-left: 0.5rem;">Curadoria</span>
+          </p>
+        )}
+        <p style="margin-top: var(--space-3); color: var(--color-ink-muted);">
+          {product.fullDescription}
+        </p>
+
+        <div class="pdp__meta">
+          <div>
+            <h3>Fragrância</h3>
+            <p>{product.fragrance}</p>
+          </div>
+          <div>
+            <h3>Características</h3>
+            <ul>
+              {product.characteristics.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="pdp__actions">
+          <!-- Buy MUST use product.affiliateUrl only -->
+          <a
+            class="btn btn--primary btn--block"
+            href={product.affiliateUrl}
+            target="_blank"
+            rel="noopener sponsored noreferrer"
+            data-track="buy-click"
+            data-product={product.slug}
+          >
+            Comprar no parceiro
+          </a>
+          <p class="pdp__note">
+            Você será direcionado ao site parceiro. Link de afiliado — podemos
+            receber comissão sem custo extra para você.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    {related.length > 0 && (
+      <section class="section" style="padding-top: 0;">
+        <header class="section__header">
+          <span class="label">Continuar explorando</span>
+          <h2>Você também pode gostar</h2>
+        </header>
+        <div class="product-grid">
+          {related.map((p) => (
+            <ProductCard product={p} />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>
