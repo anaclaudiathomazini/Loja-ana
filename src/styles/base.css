@@ -33,13 +33,14 @@ img {
 }
 
 a {
-  color: var(--color-rose-deep);
+  color: var(--color-ink);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
+  text-decoration-color: var(--color-rose);
 }
 
 a:hover {
-  color: var(--color-ink);
+  color: var(--color-rose-deep);
 }
 
 :focus-visible {

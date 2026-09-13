@@ -61,8 +61,8 @@ Sem logos de marca ou fotos protegidas sem autorização.
 1. Em `astro.config.mjs`, ajuste:
    - **Site de usuário/organização** (`username.github.io`):  
      `site: 'https://username.github.io'`, `base: '/'`
-   - **Site de projeto** (`username.github.io/loja-ana/`):  
-     `site: 'https://username.github.io'`, `base: '/loja-ana/'`
+   - **Site de projeto** (`username.github.io/Loja-ana/`):  
+     `site: 'https://username.github.io'`, `base: '/Loja-ana/'`
 2. Atualize o sitemap em `public/robots.txt`.
 3. No repositório GitHub: **Settings → Pages → Source = GitHub Actions**.
 4. Faça push da branch `main`. O workflow `.github/workflows/deploy.yml` faz build e publica `dist/`.

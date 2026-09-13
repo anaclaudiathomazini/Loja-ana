@@ -167,7 +167,7 @@
 
 .site-footer__copy {
   font-size: var(--text-body-s);
-  color: var(--color-ink-soft);
+  color: var(--color-ink-muted);
 }
 
 /* Section rhythm */
