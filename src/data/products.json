@@ -8,12 +8,22 @@
     "shortDescription": "Sabonete em barra com toque aveludado e notas suaves de rosa e âmbar.",
     "fullDescription": "Uma barra editorial pensada para o ritual lento do banho. A espuma cremosa envolve a pele com suavidade, enquanto a fragrância de rosa e âmbar permanece como um véu discreto. Ideal para quem busca um gesto diário de cuidado sem exageros.",
     "fragrance": "Rosa, âmbar suave, musk limpo",
-    "characteristics": ["Espuma cremosa", "Toque aveludado", "pH equilibrado", "Embalagem minimalista"],
+    "characteristics": [
+      "Espuma cremosa",
+      "Toque aveludado",
+      "pH equilibrado",
+      "Embalagem minimalista"
+    ],
     "priceRange": "R$ 38 – R$ 45",
     "image": "/images/placeholders/product-rose.svg",
     "affiliateUrl": "https://example.com/affiliate/barra-rosa-seda",
     "curatorRating": 5,
-    "tags": ["rosa", "barra", "ritual", "favorito"],
+    "tags": [
+      "rosa",
+      "barra",
+      "ritual",
+      "favorito"
+    ],
     "featured": true
   },
   {
@@ -25,12 +35,21 @@
     "shortDescription": "Sabonete líquido com aroma de chá branco e extratos botânicos leves.",
     "fullDescription": "Textura sedosa que limpa sem ressecar. O chá branco traz frescor silencioso; notas verdes e um toque de algodão completam a composição. Perfeito para bancadas de banheiro com estética de revista.",
     "fragrance": "Chá branco, folhas verdes, algodão",
-    "characteristics": ["Dosador elegante", "Fórmula hidratante", "Sem sulfatos agressivos", "Frasco reutilizável"],
+    "characteristics": [
+      "Dosador elegante",
+      "Fórmula hidratante",
+      "Sem sulfatos agressivos",
+      "Frasco reutilizável"
+    ],
     "priceRange": "R$ 52 – R$ 68",
     "image": "/images/placeholders/product-tea.svg",
     "affiliateUrl": "https://example.com/affiliate/liquido-cha-branco",
     "curatorRating": 4,
-    "tags": ["chá", "líquido", "fresco"],
+    "tags": [
+      "chá",
+      "líquido",
+      "fresco"
+    ],
     "featured": true
   },
   {
@@ -41,12 +60,22 @@
     "shortDescription": "Sabonete perfumado com jasmim intenso e fundo amadeirado suave.",
     "fullDescription": "Para noites em que o banho vira cerimônia. O jasmim se abre generoso, apoiado por um fundo amadeirado discreto. Deixe na gaveta da roupa de cama: a fragrância impregna com delicadeza.",
     "fragrance": "Jasmim, madeira clara, baunilha leve",
-    "characteristics": ["Alta performance olfativa", "Formato compacto", "Ideal para armário", "Acabamento acetinado"],
+    "characteristics": [
+      "Alta performance olfativa",
+      "Formato compacto",
+      "Ideal para armário",
+      "Acabamento acetinado"
+    ],
     "priceRange": "R$ 42 – R$ 55",
     "image": "/images/placeholders/product-jasmine.svg",
     "affiliateUrl": "https://example.com/affiliate/jasmin-noite",
     "curatorRating": 5,
-    "tags": ["jasmim", "perfumado", "noite", "favorito"],
+    "tags": [
+      "jasmim",
+      "perfumado",
+      "noite",
+      "favorito"
+    ],
     "featured": true
   },
   {
@@ -57,12 +86,22 @@
     "shortDescription": "Trio curado: barra suave, óleo corporal leve e sachê aromático.",
     "fullDescription": "Um presente pensado como editorial de autocuidado. Inclui uma barra de limpeza suave, um óleo corporal de absorção rápida e um sachê para a gaveta. Embalagem em tons papel e blush — pronta para presentear.",
     "fragrance": "Citrus suave, flor de laranjeira, algodão",
-    "characteristics": ["3 itens curados", "Embalagem para presente", "Guia de ritual incluso", "Edição limitada demo"],
+    "characteristics": [
+      "3 itens curados",
+      "Embalagem para presente",
+      "Guia de ritual incluso",
+      "Edição limitada"
+    ],
     "priceRange": "R$ 129 – R$ 149",
     "image": "/images/placeholders/product-kit.svg",
     "affiliateUrl": "https://example.com/affiliate/kit-ritual-amanhecer",
     "curatorRating": 5,
-    "tags": ["kit", "presente", "amanhecer", "favorito"],
+    "tags": [
+      "kit",
+      "presente",
+      "amanhecer",
+      "favorito"
+    ],
     "featured": true
   },
   {
@@ -73,12 +112,21 @@
     "shortDescription": "Óleo seco que deixa a pele luminosa com brilho champagne discreto.",
     "fullDescription": "Aplicado após o banho, absorve rápido e deixa um véu acetinado. Notas amadeiradas claras e um toque floral limpo. Excelente parceiro das barras e líquidos da curadoria.",
     "fragrance": "Sândalo claro, flor de algodão, âmbar suave",
-    "characteristics": ["Óleo seco", "Brilho natural", "Absorção rápida", "Frasco dropper"],
+    "characteristics": [
+      "Óleo seco",
+      "Brilho natural",
+      "Absorção rápida",
+      "Frasco dropper"
+    ],
     "priceRange": "R$ 78 – R$ 95",
     "image": "/images/placeholders/product-oil.svg",
     "affiliateUrl": "https://example.com/affiliate/oleo-seda-corporal",
     "curatorRating": 4,
-    "tags": ["óleo", "corpo", "brilho"],
+    "tags": [
+      "óleo",
+      "corpo",
+      "brilho"
+    ],
     "featured": false
   },
   {
@@ -87,14 +135,23 @@
     "brand": "Herbal Petite",
     "category": "achados",
     "shortDescription": "Achado da semana: lavanda calma com preço especial de curadoria.",
-    "fullDescription": "Uma descoberta quietly special — lavanda verdadeira sem o aroma agressivo de sabonete de hotel. Ideal para quem quer desacelerar à noite. Oferta demo: link afiliado placeholder.",
+    "fullDescription": "Uma descoberta especial e discreta — lavanda verdadeira sem o aroma agressivo de sabonete de hotel. Ideal para quem quer desacelerar à noite.",
     "fragrance": "Lavanda, camomila, musgo suave",
-    "characteristics": ["Edição achado", "Calmante", "Espuma leve", "Embalagem kraft premium"],
+    "characteristics": [
+      "Edição achado",
+      "Calmante",
+      "Espuma leve",
+      "Embalagem kraft premium"
+    ],
     "priceRange": "R$ 29 – R$ 36",
     "image": "/images/placeholders/product-lavender.svg",
     "affiliateUrl": "https://example.com/affiliate/lavanda-campo",
     "curatorRating": 4,
-    "tags": ["lavanda", "achado", "oferta"],
+    "tags": [
+      "lavanda",
+      "achado",
+      "oferta"
+    ],
     "featured": false
   },
   {
@@ -105,12 +162,22 @@
     "shortDescription": "Creme leve de rápida absorção com aroma de pétalas e leite de aveia.",
     "fullDescription": "Cabe na bolsa, hidrata sem filme pegajoso. A fragrância de pétalas é limpa e discreta — perfeita para o dia a dia urbano. Favorito silencioso da curadoria.",
     "fragrance": "Pétalas, leite de aveia, musk limpo",
-    "characteristics": ["Absorção rápida", "Tubo compacto", "Sem parabenos", "Textura mousse"],
+    "characteristics": [
+      "Absorção rápida",
+      "Tubo compacto",
+      "Sem parabenos",
+      "Textura mousse"
+    ],
     "priceRange": "R$ 34 – R$ 42",
     "image": "/images/placeholders/product-cream.svg",
     "affiliateUrl": "https://example.com/affiliate/creme-maos-petala",
     "curatorRating": 5,
-    "tags": ["mãos", "creme", "favorito", "viagem"],
+    "tags": [
+      "mãos",
+      "creme",
+      "favorito",
+      "viagem"
+    ],
     "featured": false
   },
   {
@@ -121,12 +188,21 @@
     "shortDescription": "Barra mineral com argila rosa e aroma terroso-floral suave.",
     "fullDescription": "A argila rosa confere um toque matificante gentil, sem ressecar. O aroma é terroso-floral, quase de papel antigo e buquê seco. Para peles que gostam de ritual com textura.",
     "fragrance": "Argila, rosa seca, cedro leve",
-    "characteristics": ["Argila rosa", "Textura mineral", "Limpeza profunda suave", "Cor natural"],
+    "characteristics": [
+      "Argila rosa",
+      "Textura mineral",
+      "Limpeza profunda suave",
+      "Cor natural"
+    ],
     "priceRange": "R$ 40 – R$ 48",
     "image": "/images/placeholders/product-clay.svg",
     "affiliateUrl": "https://example.com/affiliate/barra-argila-rosa",
     "curatorRating": 4,
-    "tags": ["argila", "barra", "mineral"],
+    "tags": [
+      "argila",
+      "barra",
+      "mineral"
+    ],
     "featured": false
   },
   {
@@ -137,12 +213,21 @@
     "shortDescription": "Kit noturno: jasmim perfumado, óleo seda e vela tealight editorial.",
     "fullDescription": "Para presentear quem ama o silêncio da noite. Combina o sabonete Jasmim da Noite, uma amostra do Óleo Seda e uma tealight com fragrância alinhada. Embalagem em mist e champagne.",
     "fragrance": "Jasmim, sândalo, baunilha leve",
-    "characteristics": ["Ritual noturno", "Presente pronto", "Tealight inclusa", "Curadoria Ana"],
+    "characteristics": [
+      "Ritual noturno",
+      "Presente pronto",
+      "Tealight inclusa",
+      "Curadoria Ana"
+    ],
     "priceRange": "R$ 159 – R$ 179",
     "image": "/images/placeholders/product-night-kit.svg",
     "affiliateUrl": "https://example.com/affiliate/kit-noite-serena",
     "curatorRating": 5,
-    "tags": ["kit", "noite", "presente"],
+    "tags": [
+      "kit",
+      "noite",
+      "presente"
+    ],
     "featured": false
   }
 ]
