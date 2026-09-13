@@ -1,0 +1,214 @@
+/* Hero — paper field, Cormorant headline, calm CTA */
+.hero {
+  position: relative;
+  padding: var(--space-8) 0 var(--space-6);
+  overflow: hidden;
+}
+
+.hero__vignette {
+  position: absolute;
+  inset: auto -10% -20% auto;
+  width: min(70vw, 28rem);
+  height: min(70vw, 28rem);
+  background: radial-gradient(circle, rgba(232, 196, 192, 0.35), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+}
+
+.hero__title {
+  font-size: var(--text-display-xl);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: var(--space-3);
+}
+
+.hero__sub {
+  font-size: var(--text-body-l);
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-4);
+  max-width: 32rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Home ritual / gift / CTA blocks */
+.ritual-block,
+.gift-block,
+.cta-block {
+  background: var(--color-paper-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--space-5) var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .ritual-block,
+  .gift-block,
+  .cta-block {
+    padding: var(--space-6);
+  }
+}
+
+.cta-block {
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(232, 217, 192, 0.35), transparent 60%),
+    var(--color-paper-elevated);
+}
+
+.cta-block .btn {
+  margin-top: var(--space-2);
+}
+
+/* PDP */
+.pdp {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-4) 0 var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .pdp {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .pdp__info {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-3));
+  }
+}
+
+.pdp__media {
+  aspect-ratio: 3 / 4;
+  background: var(--color-mist);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.pdp__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdp__brand {
+  font-size: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-1);
+}
+
+.pdp__title {
+  font-size: var(--text-display-m);
+  margin-bottom: var(--space-2);
+}
+
+.pdp__price {
+  font-size: var(--text-price);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+}
+
+.pdp__meta {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pdp__meta h3 {
+  font-size: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-ink-muted);
+  margin-bottom: var(--space-1);
+}
+
+.pdp__meta p,
+.pdp__meta ul {
+  font-size: var(--text-body-s);
+  color: var(--color-ink-muted);
+  margin: 0;
+}
+
+.pdp__actions {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.pdp__note {
+  font-size: var(--text-body-s);
+  color: var(--color-ink-soft);
+}
+
+/* Page intro */
+.page-intro {
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+.page-intro h1 {
+  margin-bottom: var(--space-2);
+}
+
+.page-intro p {
+  color: var(--color-ink-muted);
+  max-width: var(--layout-prose);
+  font-size: var(--text-body-l);
+}
+
+/* About essay */
+.about-essay {
+  padding-bottom: var(--space-8);
+}
+
+.about-essay .prose p {
+  font-size: var(--text-body-l);
+  color: var(--color-ink-muted);
+}
+
+/* Contact */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.contact-list a {
+  font-size: var(--text-body-l);
+  text-decoration: none;
+  color: var(--color-ink);
+}
+
+.contact-list a:hover {
+  color: var(--color-rose-deep);
+}
+
+.contact-list span {
+  display: block;
+  font-size: var(--text-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.25rem;
+}

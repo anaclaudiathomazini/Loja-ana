@@ -1,0 +1,235 @@
+.container {
+  width: min(100% - 2 * var(--space-3), var(--layout-max));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: min(100% - 2 * var(--space-4), var(--layout-max));
+  }
+}
+
+@media (min-width: 960px) {
+  .container {
+    width: min(100% - 2 * var(--space-6), var(--layout-max));
+  }
+}
+
+.prose {
+  max-width: var(--layout-prose);
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  background: rgba(247, 243, 238, 0.86);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: min(100% - 2 * var(--space-3), var(--layout-max));
+  margin-inline: auto;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.wordmark:hover {
+  color: var(--color-ink);
+}
+
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-paper-elevated);
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.nav-toggle[aria-expanded="true"] {
+  border-color: var(--color-champagne);
+}
+
+@media (min-width: 768px) {
+  .nav-toggle { display: none; }
+}
+
+.site-nav {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  background: var(--color-paper-elevated);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.site-nav a {
+  font-size: var(--text-body-s);
+  font-weight: 500;
+  color: var(--color-ink-muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--color-ink);
+}
+
+@media (min-width: 768px) {
+  .site-nav {
+    display: block;
+    position: static;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .site-nav ul {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+  }
+}
+
+/* Footer */
+.site-footer {
+  margin-top: var(--space-10);
+  padding: var(--space-8) 0 var(--space-6);
+  border-top: 1px solid var(--color-champagne-soft);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.site-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.site-footer__links a {
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  font-size: var(--text-body-s);
+}
+
+.site-footer__links a:hover {
+  color: var(--color-ink);
+}
+
+.affiliate-disclosure {
+  font-size: var(--text-body-s);
+  color: var(--color-ink-muted);
+  max-width: 42rem;
+  line-height: 1.5;
+}
+
+.site-footer__copy {
+  font-size: var(--text-body-s);
+  color: var(--color-ink-soft);
+}
+
+/* Section rhythm */
+.section {
+  padding: var(--space-6) 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-8) 0;
+  }
+}
+
+.section__header {
+  margin-bottom: var(--space-4);
+  max-width: 36rem;
+}
+
+.section__header .label {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 960px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 640px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+main {
+  min-height: 50vh;
+}
