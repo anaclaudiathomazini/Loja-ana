@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sabonetes-barra",
+    "label": "Sabonetes em barra",
+    "description": "Barras artesanais e sensoriais para o ritual diário de limpeza e cuidado.",
+    "featured": true
+  },
+  {
+    "id": "sabonetes-liquidos",
+    "label": "Sabonetes líquidos",
+    "description": "Fórmulas cremosas e perfumadas para mãos e corpo, com textura aveludada.",
+    "featured": true
+  },
+  {
+    "id": "sabonetes-perfumados",
+    "label": "Sabonetes perfumados",
+    "description": "Fragrâncias marcantes e delicadas que transformam o banho em um momento editorial.",
+    "featured": true
+  },
+  {
+    "id": "kits-presentes",
+    "label": "Kits e presentes",
+    "description": "Combinações curadas para presentear com elegância e intenção.",
+    "featured": true
+  },
+  {
+    "id": "banho-e-corpo",
+    "label": "Banho e corpo",
+    "description": "Óleos, cremes e essenciais que prolongam a sensação de bem-estar após o banho.",
+    "featured": false
+  },
+  {
+    "id": "achados",
+    "label": "Achados",
+    "description": "Descobertas especiais, edições limitadas e ofertas selecionadas pela curadoria.",
+    "featured": true
+  },
+  {
+    "id": "favoritos-curadoria",
+    "label": "Favoritos da curadoria",
+    "description": "Os produtos que Ana recomenda de coração — escolhas pessoais e atemporais.",
+    "featured": true
+  }
+]
