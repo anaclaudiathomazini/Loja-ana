@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../lib/paths';
+
 interface Category {
   id: string;
   label: string;
@@ -12,7 +14,7 @@ interface Props {
 const { category } = Astro.props;
 ---
 
-<a class="category-tile" href={`/categoria/${category.id}`} data-track="view-category" data-category={category.id}>
+<a class="category-tile" href={withBase(`/categoria/${category.id}`)} data-track="view-category" data-category={category.id}>
   <h3 class="category-tile__title">{category.label}</h3>
   <p class="category-tile__desc">{category.description}</p>
 </a>

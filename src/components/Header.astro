@@ -1,5 +1,7 @@
 ---
-const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+import { withBase, stripBase } from '../lib/paths';
+
+const pathname = stripBase(Astro.url.pathname);
 const links = [
   { href: '/', label: 'Início' },
   { href: '/catalogo', label: 'Catálogo' },
@@ -11,7 +13,7 @@ const links = [
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="wordmark" href="/">Loja Ana</a>
+    <a class="wordmark" href={withBase('/')}>Loja Ana</a>
     <button
       type="button"
       class="nav-toggle"
@@ -19,7 +21,7 @@ const links = [
       aria-expanded="false"
       data-nav-toggle
     >
-      <span class="sr-only">Abrir menu</span>
+      <span class="sr-only" data-nav-label>Abrir menu</span>
       <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M3 6h14M3 10h14M3 14h14" stroke-linecap="round"/>
       </svg>
@@ -33,7 +35,7 @@ const links = [
               : pathname === link.href || pathname.startsWith(link.href + '/');
           return (
             <li>
-              <a href={link.href} aria-current={current ? 'page' : undefined}>
+              <a href={withBase(link.href)} aria-current={current ? 'page' : undefined}>
                 {link.label}
               </a>
             </li>
@@ -47,11 +49,14 @@ const links = [
 <script>
   const toggle = document.querySelector('[data-nav-toggle]');
   const nav = document.querySelector('[data-site-nav]');
+  const label = document.querySelector('[data-nav-label]');
   if (toggle && nav) {
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      nav.classList.toggle('is-open', !open);
+      const next = !open;
+      toggle.setAttribute('aria-expanded', String(next));
+      nav.classList.toggle('is-open', next);
+      if (label) label.textContent = next ? 'Fechar menu' : 'Abrir menu';
     });
   }
 </script>

@@ -15,10 +15,14 @@ const {
   canonicalPath,
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://example.com');
+const site = Astro.site ?? new URL('https://anaclaudiathomazini.github.io');
+const base = import.meta.env.BASE_URL || '/';
 const path = canonicalPath ?? Astro.url.pathname;
 const canonical = new URL(path, site).href;
-const ogImage = new URL(image, site).href;
+const imagePath = image.startsWith('http')
+  ? image
+  : `${base}${image.replace(/^\//, '')}`;
+const ogImage = new URL(imagePath, site).href;
 const fullTitle = title.includes('Loja Ana') ? title : `${title} · Loja Ana`;
 ---
 

@@ -1,4 +1,6 @@
 ---
+import { withBase } from '../lib/paths';
+
 interface Product {
   slug: string;
   name: string;
@@ -15,14 +17,15 @@ interface Props {
 }
 
 const { product, showBuy = true } = Astro.props;
-const detailHref = `/produto/${product.slug}`;
+const detailHref = withBase(`/produto/${product.slug}`);
+const imageSrc = withBase(product.image);
 ---
 
 <article class="product-card" data-product-slug={product.slug}>
   <a class="product-card__media" href={detailHref} tabindex="-1" aria-hidden="true">
     <img
-      src={product.image}
-      alt=""
+      src={imageSrc}
+      alt={product.name}
       loading="lazy"
       width="600"
       height="800"
