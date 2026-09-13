@@ -1,0 +1,20 @@
+{
+  "name": "loja-ana",
+  "version": "1.0.0",
+  "description": "Loja Ana — boutique editorial de cuidados sensoriais (MVP estático)",
+  "main": "index.js",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/sitemap": "3.3.1",
+    "astro": "4.16.18"
+  }
+}
