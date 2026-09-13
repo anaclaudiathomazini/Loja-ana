@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../lib/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import products from '../../data/products.json';
@@ -17,13 +18,14 @@ const related = products
   .filter((p) => p.slug !== product.slug && (p.category === product.category || p.featured))
   .slice(0, 3);
 
-const site = Astro.site ?? new URL('https://example.com');
+const site = Astro.site ?? new URL('https://anaclaudiathomazini.github.io');
+const imageSrc = withBase(product.image);
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: product.name,
   description: product.shortDescription,
-  image: new URL(product.image, site).href,
+  image: new URL(imageSrc, site).href,
   brand: {
     '@type': 'Brand',
     name: product.brand,
@@ -47,12 +49,12 @@ const schema = {
   schema={schema}
 >
   <div class="container">
-    <nav class="label" style="padding-top: var(--space-4);" aria-label="Breadcrumb">
-      <a href="/catalogo" style="color: inherit; text-decoration: none;">Catálogo</a>
+    <nav class="label" style="padding-top: var(--space-4);" aria-label="Navegação">
+      <a href={withBase('/catalogo')} style="color: inherit; text-decoration: none;">Catálogo</a>
       {' · '}
       {category && (
         <>
-          <a href={`/categoria/${category.id}`} style="color: inherit; text-decoration: none;">
+          <a href={withBase(`/categoria/${category.id}`)} style="color: inherit; text-decoration: none;">
             {category.label}
           </a>
           {' · '}
@@ -64,7 +66,7 @@ const schema = {
     <article class="pdp">
       <div class="pdp__media">
         <img
-          src={product.image}
+          src={imageSrc}
           alt={`Imagem ilustrativa de ${product.name}`}
           width="600"
           height="800"

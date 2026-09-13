@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../lib/paths';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import products from '../../data/products.json';
@@ -46,9 +47,9 @@ if (category.id === 'achados') {
 
   <div class="container" style="padding-bottom: var(--space-8);">
     <div class="chip-row" role="navigation" aria-label="Outras categorias">
-      <a class="chip" href="/catalogo">Todos</a>
+      <a class="chip" href={withBase('/catalogo')}>Todos</a>
       {categories.map((c) => (
-        <a class={`chip${c.id === category.id ? ' is-active' : ''}`} href={`/categoria/${c.id}`}>
+        <a class={`chip${c.id === category.id ? ' is-active' : ''}`} href={withBase(`/categoria/${c.id}`)}>
           {c.label}
         </a>
       ))}
@@ -56,9 +57,9 @@ if (category.id === 'achados') {
 
     {list.length === 0 ? (
       <div class="empty-state">
-        <img src="/motifs/botanical.svg" alt="" width="24" height="24" style="margin: 0 auto var(--space-2);" />
+        <img src={withBase('/motifs/botanical.svg')} alt="" width="24" height="24" style="margin: 0 auto var(--space-2);" />
         <p>Nenhum produto nesta categoria ainda. Volte em breve.</p>
-        <a class="btn btn--ghost" href="/catalogo">Ver catálogo</a>
+        <a class="btn btn--ghost" href={withBase('/catalogo')}>Ver catálogo</a>
       </div>
     ) : (
       <div class="product-grid">

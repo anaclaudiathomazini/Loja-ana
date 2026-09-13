@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import products from '../data/products.json';
@@ -17,9 +18,9 @@ import categories from '../data/categories.json';
 
   <div class="container" style="padding-bottom: var(--space-8);">
     <div class="chip-row" role="navigation" aria-label="Filtrar por categoria">
-      <a class="chip is-active" href="/catalogo">Todos</a>
+      <a class="chip is-active" href={withBase('/catalogo')}>Todos</a>
       {categories.map((c) => (
-        <a class="chip" href={`/categoria/${c.id}`}>{c.label}</a>
+        <a class="chip" href={withBase(`/categoria/${c.id}`)}>{c.label}</a>
       ))}
     </div>
 

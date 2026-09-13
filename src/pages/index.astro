@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../lib/paths';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import CategoryTile from '../components/CategoryTile.astro';
@@ -28,15 +29,15 @@ const teaserCats = categories.filter((c) => c.featured).slice(0, 6);
         texturas aveludadas e presentes que respeitam o silêncio do cuidado.
       </p>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="/catalogo" data-track="cta-explorar">Explorar</a>
-        <a class="btn btn--ghost" href="/categoria/favoritos-curadoria">Favoritos da Ana</a>
+        <a class="btn btn--primary" href={withBase('/catalogo')} data-track="cta-explorar">Explorar</a>
+        <a class="btn btn--ghost" href={withBase('/categoria/favoritos-curadoria')}>Favoritos da Ana</a>
       </div>
     </div>
   </section>
 
   <div class="container">
     <div class="divider" aria-hidden="true">
-      <img class="divider__mark" src="/motifs/botanical.svg" alt="" width="20" height="20" />
+      <img class="divider__mark" src={withBase('/motifs/botanical.svg')} alt="" width="20" height="20" />
     </div>
   </div>
 
@@ -111,7 +112,7 @@ const teaserCats = categories.filter((c) => c.featured).slice(0, 6);
           surpreender sem excesso.
         </p>
         <p style="margin-top: var(--space-3);">
-          <a class="btn btn--primary" href="/categoria/kits-presentes">Ver kits e presentes</a>
+          <a class="btn btn--primary" href={withBase('/categoria/kits-presentes')}>Ver kits e presentes</a>
         </p>
         {giftCats.length === 0 && null}
       </div>
@@ -129,7 +130,7 @@ const teaserCats = categories.filter((c) => c.featured).slice(0, 6);
           mais sensorial. Transparência de afiliados, sempre.
         </p>
         <p style="margin-top: var(--space-3);">
-          <a class="btn btn--ghost" href="/sobre">Conhecer a história</a>
+          <a class="btn btn--ghost" href={withBase('/sobre')}>Conhecer a história</a>
         </p>
       </div>
     </div>
@@ -140,7 +141,7 @@ const teaserCats = categories.filter((c) => c.featured).slice(0, 6);
       <div class="cta-block">
         <h2>Comece pelo catálogo</h2>
         <p class="muted">Explore barras, líquidos, perfumados e rituais de banho.</p>
-        <a class="btn btn--primary" href="/catalogo" data-track="cta-catalogo">Ver catálogo completo</a>
+        <a class="btn btn--primary" href={withBase('/catalogo')} data-track="cta-catalogo">Ver catálogo completo</a>
       </div>
     </div>
   </section>
